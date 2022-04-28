@@ -1,0 +1,72 @@
+@use "../helpers/vars" as *;
+.master {
+    position: absolute;
+    top: 270px;
+    left: 250px;
+    padding: 0 25px;
+    width: calc(100% - 250px);
+    background: #f3f4f6;
+    overflow: auto;
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        img {
+            width: 25px;
+            border-radius: 50%;
+        }
+        thead {
+            text-align: left;
+            tr {
+                background-color: $gray-three;
+                th {
+                    padding: 12px 15px;
+                    font-weight: 500;
+                    opacity: .8;
+                }
+            }
+        }
+        tbody {
+            opacity: 0.9;
+            font-weight: 400;
+            font-size: 13px;
+            tr {
+                cursor: pointer;
+                &:nth-child(odd) {
+                    background-color: #FFF;
+                }
+                &:nth-child(even) {
+                    background-color: $gray-two;
+                }
+                &:hover {
+                    background-color: $gray-three;
+                }
+                td {
+                    padding: 12px 15px;
+                    &.withImg {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                    }
+                    div {
+                        display: flex;
+                        gap: 15px;
+                        color: $gray;
+                        opacity: .7;
+                        cursor: pointer;
+                        i {
+                            &:hover {
+                                color: black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 991px) {
+    .master {
+        width: 100% !important;
+        position: static;
+    }
+}

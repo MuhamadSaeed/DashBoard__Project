@@ -1,0 +1,108 @@
+@use "../helpers/vars" as *;
+@import "../helpers/mixin";
+    header {
+        background-color: #f3f4f6;
+        padding: 25px;
+        position: absolute;
+        top: 0;
+        left: 250px;
+        width: calc(100% - 250px);
+        .main-i {
+            display: none;
+            font-size: 25px;
+            margin-left: 40px;
+            cursor: pointer;
+            transition: .3s;
+            &:hover {
+                transform: scale(1.03) rotate(180deg);
+                color: $gray;
+            }
+        }
+        .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+            &::after {
+                @include afterAndBefore(0, 90px, 100%, 1px, $gray);
+            }
+            h4 {
+                font-weight: 600;
+                font-size: 22px;
+                margin-right: 16px;
+            }
+        }
+    }
+    .boxs {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        margin-top: 80px;
+        .box {
+            background: #FFF;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 12px;
+            width: calc(100% / 4);
+            cursor: pointer;
+            transition: .3s;
+            &:hover {
+                transform: scale(1.03);
+            }
+            .statics {
+                h5 {
+                    color: #6b7280;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    margin-bottom: 10px;
+                }
+                span {
+                    margin-right: 12px;
+                    font-weight: 600;
+                }
+                small {
+                    background: #ecfdf5;
+                    padding: 2px;
+                    border-radius: 5px;
+                    &.active {
+                        background-color: #ffd4d4;
+                    }
+                }
+            }
+            i {
+                font-size: 40px;
+                color: #6b7280;
+                opacity: .3;
+            }
+        }
+    }
+@media (max-width: 991px) {
+    header {
+        width: 100% !important;
+        position: static;
+        .main-i {
+            display: block;
+        }
+        .info {
+            position: relative;
+            top: 60px;
+            margin-bottom: 150px;
+            justify-content: center;
+            h4 {
+                top: -55px;
+                position: absolute;
+                margin: auto;
+            }
+        }
+    }
+
+}
+@media (max-width: 767px) {
+    .boxs {
+        flex-direction: column;
+        .box {
+            width: 100%;
+        }
+    }
+}

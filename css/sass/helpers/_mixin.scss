@@ -1,0 +1,9 @@
+@mixin afterAndBefore($left, $top, $width, $height, $bg) {
+    content: "";
+    position: absolute;
+    height: $height;
+    width: $width;
+    background: $bg;
+    left: $left;
+    top: $top;
+}

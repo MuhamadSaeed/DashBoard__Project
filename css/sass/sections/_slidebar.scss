@@ -1,0 +1,162 @@
+@use "../helpers/vars" as *;
+@import "../helpers/mixin";
+aside {
+    background-color: #000;
+    color: white;
+    height: 100vh;
+    width: 250px;
+    padding: 0 10px;
+    position: absolute;
+    z-index: 1;
+    transition: .5s;
+    .top {
+        margin-bottom: 20px;
+        .logo {
+            padding: 25px;
+            text-align: center;
+            font-size: 1.3rem;
+            text-transform: capitalize;
+            font-weight: 700;
+        }
+        .search {
+            position: relative;
+            input {
+                background-color: $may-black;
+                padding: 13px 0 13px 32px;
+                outline: none;
+                border: none;
+                color: $gray;
+                border-radius: 5px;
+                width: 100%;
+            }
+            i {
+                position: absolute;
+                left: 12px;
+                top: 14px;
+                color: $gray;
+            }
+            &::after {
+                @include afterAndBefore(0, 66px, 100%, 2px, $may-black);
+            }   
+        }
+    }
+    .mid {
+        padding: 35px 0;
+        .dash-btn {
+            display: flex;
+            gap: 10px;
+            background-color: $may-black;
+            padding: 12px 20px;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .content-btn {
+            margin-top: 10px;
+            .content {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                padding: 10px 15px;
+                h4 {
+                    color: $gray;
+                    text-transform: capitalize;
+                    font: {
+                        weight: 300;
+                        size: 18px;
+                    }
+                }
+                .arrow {
+                    position: relative;
+                    left: 70px;
+                    top: 0;
+                    cursor: pointer;
+                    width: 20px;
+                    height: 20px;
+                    .af {
+                        @include afterAndBefore(4px, 3px, 2px, 13px, $gray);
+                    }
+                    .be {
+                        @include afterAndBefore(13px, 3px, 2px, 13px, $gray);
+                    }
+                }
+            }
+            ul {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                margin-left: 31px;
+                display: none;
+                &::before {
+                    @include afterAndBefore(-10px, 0, 2px, 100%, $may-black);
+                }
+                li {
+                    list-style: none;
+                    padding: 14px 10px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    a {
+                        text-decoration: none;
+                        color: $gray;
+                    }
+                    &:hover {
+                        background-color: $gray;
+                    }
+                    &:hover a {
+                        color: #FFF;
+                    }
+                }
+            }
+        }
+    }
+    .bottom {
+        position: absolute;
+        bottom: 10px;
+        display: flex;
+        align-items: center;
+        h2 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-right: 6px;
+            background: #ef2e2e;
+            padding: 7px 9px;
+            border-radius: 50%;
+        }
+        h4 {
+            font-weight: 300;
+            margin-right: 20px;
+            font-size: 14px;
+        }
+        i {
+            padding: 10px;
+            cursor: pointer;
+            &:hover {
+                background: $gray;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+.rotate--45 {
+    transform: rotate(-45deg);
+}
+.rotate-45 {
+    transform: rotate(45deg);
+}
+.rotate--45-2 {
+    transform: rotate(-45deg) !important;
+}
+.rotate-45-2 {
+    transform: rotate(45deg) !important;
+}
+.block {
+    display: block !important;
+}
+.aside-991 {
+    left: 0 !important;
+}
+@media (max-width: 991px) {
+    aside {
+        left: -250px;
+    }
+}
